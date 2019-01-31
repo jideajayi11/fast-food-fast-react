@@ -1,24 +1,45 @@
-import React from "react";
-import PropTypes from "prop-types";
-const Input = ({ label, text, type, id, value, handleChange }) => (
-  <div className="form-group">
-    <label htmlFor={label}>{text}</label>
-    <input
-      type={type}
-      className="form-control"
-      id={id}
-      value={value}
-      onChange={handleChange}
-      required
-    />
-  </div>
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const InputComponent = ({
+  id, className, placeholder, onChange, type, name, required, accept, value, ref
+}) => (
+  <input
+    id={id}
+    className={className}
+    placeholder={placeholder}
+    onChange={onChange}
+    type={type}
+    name={name}
+    required={required}
+    accept={accept}
+    value={value}
+    ref={ref}
+  />
 );
-Input.propTypes = {
-  label: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+
+InputComponent.propTypes = {
+  id: PropTypes.string,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired
+  name: PropTypes.string,
+  required: PropTypes.string,
+  accept: PropTypes.string,
+  value: PropTypes.string,
+  ref: PropTypes.objectOf(PropTypes.any),
 };
-export default Input;
+
+InputComponent.defaultProps = {
+  id: "",
+  className: "",
+  placeholder: "",
+  name: "",
+  required: "",
+  accept: "",
+  value: "",
+  ref: React.createRef(),
+};
+
+export default InputComponent;
