@@ -1,6 +1,13 @@
+const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry: './src/index.jsx',
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'index_bundle.js',
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -17,6 +24,22 @@ module.exports = {
             loader: "html-loader"
           }
         ]
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader']
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader?name=styles/images/[name].[ext]',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true,
+            },
+          },
+        ],
       }
     ]
   },
@@ -24,9 +47,13 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
   ],
   resolve: {
     extensions: ['.jsx', '.js', 'png']
-  }
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
+
 };
