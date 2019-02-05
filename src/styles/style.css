@@ -83,7 +83,13 @@ nav div.last{
   border-bottom-left-radius: 5px;
   border-bottom: solid 0.5px #ccc;
 }
-#menu-items{
+nav div#logout:active{
+  cursor: grabbing;
+}
+nav div#logout:hover{
+  cursor: pointer;
+}
+.menu-items{
   display: none;
 }
 header {
