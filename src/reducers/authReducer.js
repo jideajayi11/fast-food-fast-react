@@ -3,7 +3,7 @@ const initialState = {
   details: {}
 };
 
-export const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case APP_AUTH: {
       return {
@@ -14,3 +14,5 @@ export const authReducer = (state = initialState, action) => {
     default: return state;
   }
 }
+
+export default authReducer;
