@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="mt-80"></div>
 		<footer id="footerAuth">
 			<div className="container">
-					&copy; 2018 Fast-Food-Fast. All rights reserved.
+					&copy; 2019 Fast-Food-Fast. All rights reserved.
 			</div>
 		</footer>
   </div>
