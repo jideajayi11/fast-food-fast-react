@@ -1,6 +1,6 @@
 import { authAction, authCreator } from "./authAction";
 import { restaurantAction, menuListingAction } from "./menuAction";
-import { postOrderAction } from "./orderAction";
+import { postOrderAction, getOrderAction, cancelOrderAction } from "./orderAction";
 
 export {
   authAction,
@@ -8,4 +8,6 @@ export {
   restaurantAction,
   menuListingAction,
   postOrderAction,
+  getOrderAction,
+  cancelOrderAction,
 };

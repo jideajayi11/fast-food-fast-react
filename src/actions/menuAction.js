@@ -19,7 +19,9 @@ export const restaurantAction = () => async (dispatch) => {
       return dispatch(restaurantCreator(
         restaurants
       ));
-    }
+    } return dispatch(restaurantCreator(
+        []
+      ));
   } catch (error) {
     return error;
   }

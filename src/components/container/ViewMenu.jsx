@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Footer from "../presentational/Footer";
-import HeaderAuth from "../container/HeaderAuth";
+import HeaderAuth from "./HeaderAuth";
 import {
   restaurantAction,
   menuListingAction,
@@ -18,6 +18,7 @@ class ViewMenuPage extends Component {
       currentMenu: {},
       tableEmpty: true,
       inputObj: {},
+      disabled: false,
     };
   }
 
@@ -25,7 +26,6 @@ class ViewMenuPage extends Component {
     this.setState({
       restaurants: (await this.props.restaurantAction()).payload,
     });
-    await this.handleSelectRestaurant(event);
   }
 
   async handleSelectRestaurant(event) {
@@ -47,12 +47,18 @@ class ViewMenuPage extends Component {
   }
 
   handleClick = async (id) => {
+    this.setState({
+      disabled: true,
+    });
     const response = await postOrderAction({
       quantity: this.state.inputObj[`quantity_${id}`],
 			foodId: id,
     });
     if(response) {
       this.props.history.push('/view-order');
+      this.setState({
+        disabled: false,
+      });
     }
   }
 
@@ -86,6 +92,7 @@ class ViewMenuPage extends Component {
               id={`food_${item.id}`}
               title="click to order"
               onClick={() => this.handleClick(item.id)}
+              disabled={this.state.disabled}
             >
               Order
             </button>

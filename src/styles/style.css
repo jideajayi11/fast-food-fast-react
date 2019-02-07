@@ -289,14 +289,14 @@ select option{
   left: 0;
   width: 100vw;
   height: 100vh;
-  display: none;
+  display: block;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
   z-index: 3;
 }
 .loading-img{
-  width: 200px;
+  width: 100px;
 }
 .overlay{
     background-color: rgba(78, 69, 69, 0.377);
