@@ -31,6 +31,7 @@ Fast-Food-Fast is a food delivery service app, this is where food sellers meet b
 
 ### View on
 * [Heroku](https://react-fast-food.herokuapp.com)
+* [Netlify](https://blissful-colden-5598d4.netlify.app/)
 
 
 
